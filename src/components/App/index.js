@@ -1,9 +1,9 @@
-// == Import npm
 import React, { useState, useEffect} from 'react';
+// Pour plus tart : 
 //import { Route, Switch, Redirect} from 'react-router-dom';
 //import axios from 'axios';
 
-// == Import
+
 import Header from 'src/components/Header';
 import CustomButton from 'src/components/CustomButton';
 import List from 'src/components/List';
@@ -11,12 +11,15 @@ import Content from 'src/components/Content';
 
 import './styles.css';
 
+// import des données en attendant de récupérer ceux de la base de données Symfony
 import exercices from 'src/data/exercices';
 import categories from 'src/data/categories';
 
 
 const App = () => {
- 
+
+
+  // Les states
     const [open, setOpen] = useState(false);
     const [inputSearch, setInputSearch] = useState('');
     const [exercicesList, setExercicesList] = useState(exercices);
@@ -32,6 +35,9 @@ const App = () => {
    // const [loadingExercicesList, setLoadingExercicesList] = useState(true);
 
    /*
+
+   => Essai de code avec une API mais celle - ci a cessé de fonctionner !
+
     const loadExercicesList = () => {
       axios.get('https://bridge.buddyweb.fr/api/pumpitapp/exercices')
         .then((response) => {
@@ -68,17 +74,19 @@ const App = () => {
     }, []);
     */
 
+  // Fonction de retour qui permet ou non l'affichage des exercices quand on clique sur le bouton
   const handleClick = (open) => {
      setOpen(!open);
   };
 
-
+  // Fonction qui renvoie les données correspondant à l'exercice quand on clique sur le nom de celui-ci dans la liste
   const handleClickOnExercice = (exerciceName) => {
     let currentExercice = exercicesList.filter(exercice => exercice.name === exerciceName);
     setExercice(currentExercice);
     return exercice;
   };
 
+  // Fonction qui renvoie la liste d'exercices correspondant à la catégorie choisi dans le select
   const handleClickSelect = (category) => {
 
     if(category !== "Toutes les catégories") {
@@ -92,7 +100,7 @@ const App = () => {
     return exercicesList;
   };
 
-
+  // Fonction de recherche d'un exercice par son nom
   const searchExercice = (inputSearch) => {
     if (inputSearch.length > 0) {
       exercicesList = exercicesList.filter((exercice) => {
@@ -101,24 +109,18 @@ const App = () => {
 
         return loweredExercice.includes(loweredInputSearch);
       });
-      //setExercicesList(exercicesList);
-
-     // return exercicesList;
     }
   };
 
+  // Fonction qui appelle d'autres fonctions en fonction du contexte (select ou barre de recherche)
   const currentExercicesList = (inputSearch, category) => {
      
     if (inputSearch.length > 0)
     {
       searchExercice(inputSearch);
-
-     // return exercicesList;
     } 
      
     handleClickSelect(category);
-
-   // return exercicesList;
   };
 
 
@@ -144,5 +146,6 @@ const App = () => {
 
     );
   };
-// == Export
+
+// Export
 export default App;
