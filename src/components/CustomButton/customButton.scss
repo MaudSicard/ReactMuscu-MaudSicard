@@ -1,0 +1,22 @@
+@use 'src/styles/vars';
+
+.custom-button {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 4px solid vars.$mainColor;
+  color: vars.$mainColor;
+  margin-top: -25px;
+  font-size: 2em;
+
+  &:hover {
+    color: vars.$lightColor;
+    background-color: vars.$mainColor;
+  }
+
+  // .custom-button.custom-button--open
+  &.custom-button--open {
+    // https://developer.mozilla.org/en-US/docs/Web/CSS/transform
+    transform: rotate(180deg);
+  }
+}
