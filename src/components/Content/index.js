@@ -4,9 +4,14 @@ import './content.scss';
 
 const Content =  ({currentExercice}) =>  (
   <div className="content">
-    <h3 className="content_title">{currentExercice.name}</h3>
-    <img className="content_img" src={currentExercice.image}/>
-    <p className="content_p" key={currentExercice.name}>{currentExercice.description}</p>
+    {currentExercice.map((exercice) => (
+    <div key={exercice.name}>
+     <h3 className="content_title">{exercice.name}</h3>
+     <img className="content_img" src={exercice.image}/>
+     <p className="content_p" key={exercice.name}>{exercice.description}</p>
+     </div>
+    ))}
+   
   </div>
 );
 

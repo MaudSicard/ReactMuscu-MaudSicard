@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import './customButton.scss';
 
-const CustomButton = ({ open, handleClick }) => {
+const CustomButton = ({ open, handleClick}) => {
   let cssClass = 'custom-button';
   if (open) {
     cssClass += ' custom-button--open';
@@ -14,8 +14,8 @@ const CustomButton = ({ open, handleClick }) => {
     <button
       className={cssClass}
       type="button"
-      onClick={() => {
-        handleClick();
+     onClick={() => {
+       handleClick(open);
       }}
     >
       🏋️

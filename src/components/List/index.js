@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import './list.scss';
 
 
-const List = ({search, setInputSearch, exercices, categories, setCategory, currentCategory, setExerciceName}) => {
+const List = ({search, handleInputSearch, exercices, categories, handleCategory, currentCategory, handleExerciceName}) => {
 
       return (
         <div className="list">
@@ -13,7 +13,7 @@ const List = ({search, setInputSearch, exercices, categories, setCategory, curre
             className="list_input"
             value={search}
             onChange={(event) => {
-              setInputSearch(event.target.value);
+              handleInputSearch(event.target.value);
             }}
           />
 
@@ -23,7 +23,7 @@ const List = ({search, setInputSearch, exercices, categories, setCategory, curre
             placeholder="Sélectionner une catégorie"
             value={currentCategory}
             onChange={(event) => {
-              setCategory(event.target.value);
+              handleCategory(event.target.value);
             }}
           >
             {categories.map((category) => (
@@ -34,7 +34,7 @@ const List = ({search, setInputSearch, exercices, categories, setCategory, curre
           <ul className="list_ul">
           {exercices.map((exercice) => (
               <li key={exercice.name} className="list_li" onClick={() => {
-                setExerciceName(exercice.name);
+                handleExerciceName(exercice.name);
               }}>
                 {exercice.name}
               </li>
@@ -53,10 +53,10 @@ List.propTypes = {
   categories: PropTypes.arrayOf(
     PropTypes.string.isRequired
   ).isRequired,
-  setCategory: PropTypes.func.isRequired,
-  setExerciceName: PropTypes.func.isRequired,
+  handleCategory: PropTypes.func.isRequired,
+  handleExerciceName: PropTypes.func.isRequired,
   search: PropTypes.string.isRequired,
-  setInputSearch: PropTypes.func.isRequired,
+  handleInputSearch: PropTypes.func.isRequired,
   currentCategory: PropTypes.string.isRequired
 
 };
