@@ -1,0 +1,21 @@
+@use 'src/styles/vars';
+
+
+.programmes {
+  background: rgba( 255, 255, 255, 0.05 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 20.0px );
+  -webkit-backdrop-filter: blur( 20.0px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+  color: vars.$lightColor;
+  padding: vars.$gutter*2;
+  display: block;
+  margin: 0;
+  border-radius: 5px 5px 5px;
+  
+    .programmes_p {
+      margin: vars.$gutter;
+      line-height: 1.5;
+    }
+}

@@ -3,19 +3,32 @@
 
 .header {
   background-image: url('https://cdn.pixabay.com/photo/2018/01/21/22/52/dumbbell-3097728__340.jpg');
-box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-border-radius: 10px;
-border: 1px solid rgba( 255, 255, 255, 0.18 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
   color: vars.$lightColor;
   padding: vars.$gutter*2;
   display: block;
   margin: 0;
-  height: 150px;
+  height: 220px;
   border-radius: 5px 5px 5px;
 
   .header_title {
     font-weight: vars.$fwbold;
     font-size: 4 * vars.$gutter;
   }
-  
+  .header_nav {
+    margin-top: 2 * vars.$gutter;
+    font-size: 1.4 * vars.$gutter;
+    font-weight: vars.$fwbold;
+    width: 100%;
+    
+    .header_link {
+      margin: vars.$gutter 0.4 * vars.$gutter;
+
+      &:hover {
+        color: vars.$mainColor;
+      }
+    }
+  }
 }

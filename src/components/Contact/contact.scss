@@ -1,0 +1,49 @@
+@use 'src/styles/vars';
+
+
+.contact {
+  background: rgba( 255, 255, 255, 0.05 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 20.0px );
+  -webkit-backdrop-filter: blur( 20.0px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+  color: vars.$lightColor;
+  padding: vars.$gutter*2;
+  display: block;
+  margin: 0;
+  border-radius: 5px 5px 5px;
+
+
+      .form_input {
+        border-radius: 5px 5px 5px;
+        background-color: vars.$lightColor;
+        color: vars.$altColor;
+        width: 80%;
+        font-size: 1.5 * vars.$gutter;
+        margin: vars.$gutter auto;
+        padding: vars.$gutter;
+      }
+
+      .form_textarea {
+        border-radius: 5px 5px 5px;
+        background-color: vars.$lightColor;
+        color: vars.$altColor;
+        width: 80%;
+        height: 150px;
+        font-size: 1.5 * vars.$gutter;
+        margin: vars.$gutter auto;
+        padding: vars.$gutter;
+      }
+
+      .form_button {
+        border-radius: 5px 5px 5px;
+        background-color: vars.$lightColor;
+        color: vars.$altColor;
+        font-size: 1.5 * vars.$gutter;
+        margin: vars.$gutter auto;
+        padding: vars.$gutter;
+      }
+      
+}
+

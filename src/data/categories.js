@@ -1,6 +1,6 @@
 export default [
-  'bras et dos', 
-  'abdos',
-  'jambes et fessiers',
+  'Bras et dos', 
+  'Abdos',
+  'Jambes et fessiers',
   'Toutes les catégories'
 ];

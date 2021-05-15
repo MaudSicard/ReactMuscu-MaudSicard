@@ -1,6 +1,6 @@
 // == Import npm
 import React, { useState, useEffect} from 'react';
-//import { Route, Switch, Redirect} from 'react-router-dom';
+import { Route, Switch, Redirect} from 'react-router-dom';
 //import axios from 'axios';
 
 // == Import
@@ -8,6 +8,9 @@ import Header from 'src/components/Header';
 import CustomButton from 'src/components/CustomButton';
 import List from 'src/components/List';
 import Content from 'src/components/Content';
+import Programmes from 'src/components/Programmes';
+import Contact from 'src/components/Contact';
+import EspacePersonnel from 'src/components/EspacePersonnel';
 
 import './styles.css';
 
@@ -125,26 +128,41 @@ const App = () => {
     return (
       <div className="app">
         <Header />
-        <CustomButton open={open}  handleClick={handleClick} />
-        {open && (
-              <List 
-              exercices={inputSearch.length > 0 ? (
-                exercicesList.filter(exercice => exercice.name.includes(inputSearch))
-                ) : ((category !== "Toutes les catégories" ? exercicesList.filter(exercice => exercice.category === category) : exercices))
-              }
-              categories={categories}
-              handleCategory={setCategory}
-              handleExerciceName={setExerciceName}
-              search={inputSearch}
-              handleInputSearch={setInputSearch}
-              currentCategory={category}
-              />
+
+          <Route path={'/programmes'}>
+            <Programmes />
+          </Route>
+
+          <Route path={'/contact'}>
+            <Contact />
+          </Route>
+
+          <Route path={'/espacePersonnel'}>
+            <EspacePersonnel />
+          </Route>
+          
+          <Route path={'/'} exact>
+            <CustomButton open={open}  handleClick={handleClick} />
+            {open && (
+                  <List 
+                  exercices={inputSearch.length > 0 ? (
+                    exercicesList.filter(exercice => exercice.name.includes(inputSearch))
+                    ) : ((category !== "Toutes les catégories" ? exercicesList.filter(exercice => exercice.category === category) : exercices))
+                  }
+                  categories={categories}
+                  handleCategory={setCategory}
+                  handleExerciceName={setExerciceName}
+                  search={inputSearch}
+                  handleInputSearch={setInputSearch}
+                  currentCategory={category}
+                  />
             )}
-        <Content 
-       currentExercice={inputSearch.length > 0 ? (
-        exercicesList.filter(exercice => exercice.name.includes(inputSearch))
-        ) : ( exercicesList.filter(exercice => exercice.name === exerciceName))}
-        />
+            <Content 
+              currentExercice={inputSearch.length > 0 ? (
+                exercicesList.filter(exercice => exercice.name.includes(inputSearch))
+                ) : ( exercicesList.filter(exercice => exercice.name === exerciceName))}
+            />
+          </Route>
     </div>
 
     );
